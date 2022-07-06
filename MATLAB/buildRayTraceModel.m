@@ -12,13 +12,16 @@ y0 = 30;
 faces = [
     x0 x0 0; %Front Face 
     x0 y0 0; %Bottom Face
-    y0 y0 0; %Top of Top Face
+    x0 y0 0; %Top of Top Face
     y0 y0 0; %Bottom of Top Face
     x0 y0 0; %Right Face
     x0 y0 0; %Left Face
     x0 x0 0; %Back Face
+    x0 y0 0;
+    x0 y0 0;
+    x0 y0 0;
     x0 y0 0]; 
-faceColors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'b'];
+faceColors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'b', 'b', 'g', 'g'];
 % Locate the center of each face in body coordinates
 centerPoint = 0.5*[
     0 -y0 0;  %Front Face 
@@ -28,7 +31,10 @@ centerPoint = 0.5*[
     x0 0  0;  %Right Face
     -x0 0 0;  %Left Face
     0  y0 0; %Back Face
-    20  0 -2*x0]; 
+    2*x0 0 -2*x0;
+    2*x0 0 2*x0;
+    -2*x0 0 2*x0;
+    -2*x0 0 -2*x0]; 
 % Identify the rotation to put the face into body coordinates
 baseFaceTransform(:, :, 1) = [1 0 0; 0 0 -1; 0 1 0]; %Front
 baseFaceTransform(:, :, 2) = eye(3); %Bottom
@@ -38,5 +44,8 @@ baseFaceTransform(:, :, 4) = [-1 0 0 ; 0 1 0; 0 0 -1]; %Bottom of Top
 baseFaceTransform(:, :, 5) = [0 0 1; 0 1 0; 1 0 0]; %Right
 baseFaceTransform(:, :, 6) = [0 0 -1; 0 1 0; -1 0 0]; %Left
 baseFaceTransform(:, :, 7) = [-1 0 0; 0 0 1; 0 1 0]; %Back
-baseFaceTransform(:, :, 8) = [0 0 1; 0 1 0; 1 0 0]; %Back
+baseFaceTransform(:, :, 8) = [-sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Top Right
+baseFaceTransform(:, :, 9) = [sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Bottom Right
+baseFaceTransform(:, :, 10) = [-sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Bottom Left
+baseFaceTransform(:, :, 11) = [sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Top Left
 numFaces = size(faces, 1);
