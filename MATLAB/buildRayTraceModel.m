@@ -8,6 +8,7 @@ function [faces, faceColors, numFaces, centerPoint, baseFaceTransform] = ...
     buildRayTraceModel()
 x0 = 10;
 y0 = 30;
+z = sqrt(2)/2
 % Dimensions of the X & Y faces in their flat-plane configuration
 faces = [
     x0 x0 0; %Front Face 
@@ -47,5 +48,5 @@ baseFaceTransform(:, :, 7) = [-1 0 0; 0 0 1; 0 1 0]; %Back
 baseFaceTransform(:, :, 8) = [-sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Top Right
 baseFaceTransform(:, :, 9) = [sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Bottom Right
 baseFaceTransform(:, :, 10) = [-sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Bottom Left
-baseFaceTransform(:, :, 11) = [sqrt(2)/2 0 1;  0 1 0; 1 0 0]; %Top Left
+baseFaceTransform(:, :, 11) = [.75 0 1;  0 1 0; 1 0 0]; %Top Left
 numFaces = size(faces, 1);
